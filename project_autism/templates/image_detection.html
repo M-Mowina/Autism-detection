@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Photographic Detection
+{% endblock %}
+
+{% block main %}
+    
+    <h1>Photographic Autism Detection</h1>
+
+    <div id="upload"> 
+        <form action="/image_detection" method="POST" enctype="multipart/form-data">
+            <label for="image">Upload an image:</label>
+            <input type="file" name="image" id="image" accept="image/*" required>
+            <button type="submit">Upload & Classify</button>
+        </form>
+    </div>
+
+    <div id="result">
+        {% if result %}
+            <p>Likellyhood: {{ result }}</p>
+        {% endif %}
+    </div>
+   
+{% endblock %}

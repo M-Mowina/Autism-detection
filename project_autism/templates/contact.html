@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contact Us
+{% endblock %}
+
+{% block main %}
+    <h1>Contact Us</h1>
+    
+    <form action="/contact" method="post">
+        <input
+          name="subject"
+          type="text"
+          placeholder="subject"
+        />
+        <textarea
+          name="message"
+          placeholder="Comment"
+        ></textarea>
+        <input style="margin-bottom: 100px;" type="submit" value="SUBMIT" />
+    </form>
+{% endblock %}
