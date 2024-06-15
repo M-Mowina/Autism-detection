@@ -5,12 +5,23 @@ from PIL import Image
 import numpy as np
 import sqlite3
 import bcrypt
-
+import pandas as pd
 # Database connection details
 DATABASE_FILE = 'autism.db'
 
 # Load the image classification model
 model = tf.keras.models.load_model('autism_v1.h5')
+
+# Questionnair columns
+columns = ['A1_Score', 'A2_Score', 'A3_Score', 'A4_Score', 'A5_Score', 'A6_Score',
+       'A7_Score', 'A8_Score', 'A9_Score', 'A10_Score', 'ethnicity_Asian',
+       'ethnicity_Black', 'ethnicity_Hispanic', 'ethnicity_Latino',
+       'ethnicity_Middle Eastern', 'ethnicity_Others', 'ethnicity_Pasifika',
+       'ethnicity_South Asian', 'ethnicity_Turkish',
+       'ethnicity_White-European', 'relation_Health care professional',
+       'relation_Parent', 'relation_Relative', 'relation_Self', 'gender_f',
+       'gender_m', 'jundice_no', 'jundice_yes', 'used_app_before_no',
+       'used_app_before_yes', "age_desc_'4-11 years'"]
 
 app = Flask(__name__)
 
@@ -152,11 +163,31 @@ def image_detection():
 
 @app.route('/questionnaire', methods=['GET', 'POST'])
 def questionnaire():
-    if request.method == 'POST':
-        # Handle questionnaire submission and analysis here
-        # Process user responses and return results
-        pass
+  if request.method == 'POST':
+    inputs = {
+      'A1_Score': [request.form['A1_Score']],
+      'A2_Score': [request.form['A2_Score']],
+      'A3_Score': [request.form['A3_Score']],
+      'A4_Score': [request.form['A4_Score']],
+      'A5_Score': [request.form['A5_Score']],
+      'A6_Score': [request.form['A6_Score']],
+      'A7_Score': [request.form['A7_Score']],
+      'A8_Score': [request.form['A8_Score']],
+      'A9_Score': [request.form['A9_Score']],
+      'A10_Score': [request.form['A10_Score']],
+      'gender': [request.form['gender']],
+      'ethnicity': [request.form['ethnicity']],
+      'jundice': [request.form['jundice']],
+      'used_app_before': [request.form['used_app_before']],  # Assuming hidden input
+      'age_desc': ["'4-11 years'"],  # Assuming hidden input
+      'relation': [request.form['relation']]
+    }
+    x_new = pd.DataFrame(inputs)
+    print(x_new)
+    # Process user responses and return results
+  else:
     return render_template('questionnaire.html')
+
 
 
 @app.route('/about')
