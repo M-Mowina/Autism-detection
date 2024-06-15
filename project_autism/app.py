@@ -6,11 +6,18 @@ import numpy as np
 import sqlite3
 import bcrypt
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
+import joblib
+
 # Database connection details
 DATABASE_FILE = 'autism.db'
 
 # Load the image classification model
 model = tf.keras.models.load_model('autism_v1.h5')
+# Load the questionnaire model
+questionnaire_mode = tf.keras.models.load_model('questionnair_v1.h5')
+# Scale the input features
+scaler = joblib.load('scaler.joblib')
 
 # Questionnair columns
 columns = ['A1_Score', 'A2_Score', 'A3_Score', 'A4_Score', 'A5_Score', 'A6_Score',
@@ -184,10 +191,13 @@ def questionnaire():
     }
     x_new = pd.DataFrame(inputs)
     print(x_new)
+
     # Process user responses and return results
+    result = predict(x_new)[0][0]
+    print('Result: ',result)
+    return render_template('questionnaire.html', result=result)
   else:
     return render_template('questionnaire.html')
-
 
 
 @app.route('/about')
@@ -195,9 +205,44 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/contact')
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    if request.method == 'GET':
+        if not session.get('user_id'):
+            return redirect('/login')
+        
+        return render_template("contact.html")
+    else:
+        user_id = session.get('user_id')
+        subject = request.form['subject']
+        message = request.form['message']
+        #print(message)
+        # Connect to the database
+        conn = sqlite3.connect(DATABASE_FILE)
+        cur = conn.cursor()
+        # Insert data into the ContactUs table
+        try:
+            user_id = session['user_id']
+            name = session['user_name']
+            # Use a parameterized query to prevent SQL injection attacks
+            cursor = conn.cursor()
+            cursor.execute("""INSERT INTO Feedback (subject, message, user_id)
+                        VALUES (?, ?, ?)""", (subject, message, user_id))
+            conn.commit()
+            respond = 'Your message has been sent successfully!'
+            flash(respond, 'success')
+            print(respond)
+            return render_template('contact.html', error=respond)
+        except sqlite3.Error as e:
+            # Handle database errors gracefully (e.g., logging, flash message)
+            error = str(e)
+            flash(f"Database error: {error}", 'danger')
+            print(error)
+            return render_template('contact.html', error=error)
+        finally:
+            cur.close()
+            conn.close()
+
 
 
 def convert(img):
@@ -205,7 +250,6 @@ def convert(img):
     img = img.resize((224, 224))
     # Add a new axis for batch dimension
     return np.array(img)[np.newaxis]
-
 
 def make_prediction(img):
     #img = Image.open(img_path)
@@ -216,6 +260,52 @@ def make_prediction(img):
     else:
         return 'Non-Autism'
     
+def preprocess_input(input_data, scaler = scaler, columns = columns):
+    """
+    Preprocesses the input data by applying one-hot encoding and scaling.
+    
+    Parameters:
+    - input_data: pd.DataFrame, new input data
+    - scaler: StandardScaler, fitted scaler from the training data
+    - columns: list, columns of the training data after one-hot encoding
+    
+    Returns:
+    - pd.DataFrame, preprocessed input data
+    """
+    # One-hot encode the input data
+    input_data = pd.get_dummies(input_data, columns=['ethnicity','relation','gender','jundice','used_app_before','age_desc'])
+    
+    # Ensure input_data has the same columns as the training data
+    missing_cols = set(columns) - set(input_data.columns)
+    for col in missing_cols:
+        input_data[col] = 0
+    input_data = input_data[columns]
+    
+    # Scale the input data
+    input_data = pd.DataFrame(scaler.transform(input_data), columns=columns, index=input_data.index)
+    print(input_data)
+    return input_data
+
+def predict(input_data, model = questionnaire_mode, scaler = scaler, columns = columns):
+    """
+    Predicts the output using the trained model.
+    
+    Parameters:
+    - input_data: pd.DataFrame, new input data
+    - model: trained model
+    - scaler: StandardScaler, fitted scaler from the training data
+    - columns: list, columns of the training data after one-hot encoding
+    
+    Returns:
+    - np.array, predictions
+    """
+    # Preprocess the input data
+    input_data_preprocessed = preprocess_input(input_data, scaler, columns)
+    
+    # Make predictions
+    predictions = model.predict(input_data_preprocessed)
+    
+    return predictions
 
 if __name__ == '__main__':
     app.run()

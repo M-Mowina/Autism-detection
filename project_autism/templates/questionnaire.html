@@ -8,7 +8,7 @@
 <h1>Child Development Assessment</h1>
 <p>Please answer the following questions to the best of your ability.</p>
 
-<form id="myForm">
+<form id="myForm" action="/questionnaire" method="POST">
     <label for="A1_Score">Does your child look at you when you call his/her name?</label>
     <br>
     <input type="radio" id="A1_Score_yes" name="A1_Score" value="1"> Yes
@@ -119,5 +119,11 @@
 
     <button type="submit">Submit</button>
 </form>
+
+<div id="result">
+    {% if result %}
+        <p>Likellyhood: {{ result }}%</p>
+    {% endif %}
+</div>
     
 {% endblock %}
