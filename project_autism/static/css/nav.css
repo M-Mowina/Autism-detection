@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+:root {
+    --primary-color: #102C57;
+}
+
+html {
+    scroll-padding-top: 57px;
+}
+
+.fit-content {
+    width: fit-content;
+}
+
+.main-color {
+    color: var(--primary-color);
+}
+
+.btn-color {
+    background-color: var(--primary-color);
+}
+
+.text-paragraph {
+    max-width: 500px;
+    color: grey;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* ==== NAVBAR ==> */
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-color);
+}
+
+.navbar-nav li a {
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1.8;
+    transition: 0.5s all;
+    margin-right: 5px;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.main-textcolor
+{
+    color: #102C57;
+}
+
+.footer
+{
+    background-color: #3f51b5
+}

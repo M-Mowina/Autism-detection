@@ -1,0 +1,142 @@
+.dash
+{
+    color: blue;
+}
+/* CSS STYLESHEET */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2, h6 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: #343a40;
+}
+
+/* Title and Subtitle Styling */
+h1 span.dash, h2 span.dash {
+    color: #17a2b8;
+    font-size: 1.5rem;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Text Center */
+.text-center {
+    text-align: center;
+}
+
+/* Margin and Padding Utilities */
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.my-3 {
+    margin: 1rem 0 !important;
+}
+
+/* List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+ul li h6 {
+    display: inline;
+    font-weight: 600;
+}
+
+/* Custom Feature List Styles */
+.feature ul li {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Mission Section */
+.mission {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+/* Link Styles */
+a {
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bootstrap Overrides */
+.container h1,
+.container h2,
+.container p,
+.container ul {
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    p, ul li {
+        font-size: 1rem;
+    }
+}
+.about {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.feature {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

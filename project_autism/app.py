@@ -255,10 +255,8 @@ def make_prediction(img):
     #img = Image.open(img_path)
     converted_img = convert(img)
     prediction = model.predict(converted_img)
-    if prediction[0][0] > prediction[0][1]:
-        return 'Autism'
-    else:
-        return 'Non-Autism'
+    return prediction[0][0]
+
     
 def preprocess_input(input_data, scaler = scaler, columns = columns):
     """

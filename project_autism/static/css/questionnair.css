@@ -1,0 +1,68 @@
+/* style.css */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+select,
+input[type="text"],
+input[type="email"] {
+    width: calc(100% - 22px); /* Adjust width to fit container */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('./images/down-arrow.png') no-repeat right center; /* Custom dropdown arrow */
+    background-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.title {
+    text-align: center;
+    max-width: 600px; /* Adjust this as needed */
+    padding: 20px;
+    border-radius: 8px;
+}

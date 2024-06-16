@@ -1,0 +1,62 @@
+/* de.css */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for the image */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle box shadow */
+}
+
+.form {
+    max-width: 600px;
+    margin: 0 auto; /* Center the form horizontally */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#upload {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#upload label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#upload button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#upload button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#result p {
+    font-size: 1.2rem;
+    color: #333;
+}
