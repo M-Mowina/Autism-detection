@@ -4,7 +4,122 @@
     Home
 {% endblock %}
 
+{% block styles %}
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP STYLESHEET -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <!-- CSS STYLESHEET -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+
 {% block main %}
-    <h1>Home Page</h1>
+    <section id="home">
+        <!-- ===========================sec1====================================== -->
+        <div class="sec1 container my-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="fw-bold">
+                        Autism Detection
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <h1>Autism</h1>
+                    <p>
+                        Autism spectrum disorder (ASD) is a complicated neurological developmental disorder that
+                        manifests itself in a variety of ways. The child diagnosed with ASD and their parents’ daily
+                        lives can be dramatically improved with early diagnosis and appropriate medical intervention.
+                        According to the World Health Organization in 2014, it confirmed that the number of people with
+                        autism in Egypt is estimated at about 800,000. At the same time, the Children’s Department of
+                        the General Secretariat of Mental Health announced that the prevalence of autism in Egypt
+                        reached 1%. In 2017
+                        the Minister of Health confirmed Social Solidarity This number indicates
+                        that there is one out of every 160 children infected with different degrees of symptoms.
+                        The reason for choosing this project lies in the early diagnosis of children with autism
+                        spectrum disorder, which is difficult to diagnose early by specialists at young ages.
+                        The difficulty of detecting autism in its early stages lies in the lack of any biological
+                        symptoms that can be used in diagnosis.
+                    </p>
+                </div>
+                <div class="col-md-7 d-flex justify-content-center align-items-center">
+                    <img src="{{ url_for('static', filename='images/autismdescption.jpg') }}" class="w-50 rounded rounded-3" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- =================================sec2======================================== -->
+        <div class="container">
+            <div class="row">
+                <h3>
+                    The advantages of our Website
+                </h3>
+                <div class="col-md-3">
+                    <div class="card">
+                        <p class="card-title">Advantage 1</p>
+                        <p class="small-desc">
+                            Early Detection and Intervention:
+                            Allows for early identification of autism, which is crucial for timely intervention and
+                            support.
+                            Parents and caregivers can take the first step towards seeking professional help without
+                            delay.
+                        </p>
+                        <div class="go-corner">
+                            <div class="go-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <p class="card-title">Advantage 2</p>
+                        <p class="small-desc">
+                            Provides a convenient and easily accessible tool for people all around the world.
+                            Reduces the need for immediate in-person consultations, making it easier for those in remote
+                            or underserved areas.
+                        </p>
+                        <div class="go-corner">
+                            <div class="go-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <p class="card-title">Advantage 3</p>
+                        <p class="small-desc">
+                            Simple and intuitive design ensures that users can easily upload images and answer questions
+                            without technical difficulties.
+                            Clear instructions and guidance throughout the process enhance user experience.
+                        </p>
+                        <div class="go-corner">
+                            <div class="go-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <p class="card-title">Advantage 4</p>
+                        <p class="small-desc">
+                            Cost-Effective:
+                            Offers a cost-effective solution for preliminary autism screening, potentially saving users
+                            from expensive initial consultations.
+                            Helps healthcare providers focus their resources on confirmed cases, optimizing healthcare
+                            delivery.
+                        </p>
+                        <div class="go-corner">
+                            <div class="go-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     
 {% endblock %}

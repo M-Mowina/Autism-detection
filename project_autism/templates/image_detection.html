@@ -4,22 +4,62 @@
     Photographic Detection
 {% endblock %}
 
+{% block styles %}
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- BOOTSTRAP STYLESHEET -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <!-- CSS STYLESHEET -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/de.css') }}">
+{% endblock %}
+
 {% block main %}
     
-    <h1>Photographic Autism Detection</h1>
-
-    <div id="upload"> 
-        <form action="/image_detection" method="POST" enctype="multipart/form-data">
-            <label for="image">Upload an image:</label>
-            <input type="file" name="image" id="image" accept="image/*" required>
-            <button type="submit">Upload & Classify</button>
-        </form>
-    </div>
-
-    <div id="result">
-        {% if result %}
-            <p>Likellyhood of Autism is : {{ result }}%</p>
-        {% endif %}
-    </div>
+    <section>
+        <div class="title">
+            <h2 class="mb-5">Photographic Autism Detection</h2>
+            <img src="{{ url_for('static', filename='images/detect.jpg') }}" class="w-25" alt="Detection Image">
+        </div>
+        <div class="instruction container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h6 class="mb-4">The photo must meet the following conditions:</h6>
+                    <ul>
+                        <li>Right-side-up (not rotated) to be printed on your Tazkarti ID</li>
+                        <li>35-40 mm in width</li>
+                        <li>Face takes up 70-80% of it</li>
+                        <li>No sunglasses, hats, or caps</li>
+                        <li>Show you alone with neutral expression</li>
+                        <li>Clear and of high quality</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <h6>Photo Like This</h6>
+                    <img src="{{ url_for('static', filename='images/example.jpg') }}" class="w-50" alt="Example Image">
+                </div>
+            </div>
+        </div>
+        <div class="form mt-5">
+            <div id="upload">
+                <form action="/image_detection" method="POST" enctype="multipart/form-data">
+                    <label for="image">Upload an image:</label>
+                    <input type="file" name="image" id="image" accept="image/*" required>
+                    <button type="submit">Upload & Classify</button>
+                </form>
+            </div>
+            <div id="result">
+                {% if result %}
+                    <p>Likellyhood of Autism is : {{ result }}%</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
    
 {% endblock %}

@@ -4,19 +4,37 @@
     Contact Us
 {% endblock %}
 
+{% block styles %}
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- BOOTSTRAP STYLESHEET -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <!-- CSS STYLESHEET -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contactus.css') }}">
+{% endblock %}
+
 {% block main %}
-    <h1>Contact Us</h1>
-    
-    <form action="/contact" method="post">
-        <input
-          name="subject"
-          type="text"
-          placeholder="subject"
-        />
-        <textarea
-          name="message"
-          placeholder="Comment"
-        ></textarea>
-        <input style="margin-bottom: 100px;" type="submit" value="SUBMIT" />
-    </form>
+  <div class="container mt-5 pt-5">
+    <div class="contact-form text-center">
+        <h2 class="text-center">Contact Us</h2>
+        <div class="title text-center pt-2">
+            <p>We’re here to help and answer any question you might have.</p>
+            <p>We look forward to hearing from you.</p>
+        </div>
+        <form action="/contact" method="post">
+            <input name="subject" type="text" placeholder="Subject" />
+            <textarea name="message" placeholder="Comment"></textarea>
+            <div class="btn d-flex justify-content-center">
+                <input type="submit" value="SUBMIT" />
+            </div>
+        </form>
+    </div>
+  </div>
 {% endblock %}

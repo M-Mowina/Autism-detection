@@ -4,126 +4,137 @@
     Questionnaire for Child Development Assessment
 {% endblock %}
 
+{% block styles %}
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- FONTS -->
+    
+    <link
+        rel="stylesheet">
+    <!-- CSS STYLESHEET -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnair.css') }}">
+{% endblock %}
+
 {% block main %}
-<h1>Child Development Assessment</h1>
-<p>Please answer the following questions to the best of your ability.</p>
+    <section class="container">
+        <div id="result">
+            {% if result %}
+                <p>Likellyhood of Autism is : {{ result }}%</p>
+            {% endif %}
+        </div>
+        <div class="title">
+            <h2>Child Development Assessment</h2>
+            <p>Please answer the following questions to the best of your ability.</p>
+        </div>
+        <form id="myForm">
+            <label for="A1_Score">1-Does your child look at you when you call his/her name?</label>
+            <br>
+            <input type="radio" id="A1_Score_yes" name="A1_Score" value="1"> Yes
+            <input type="radio" id="A1_Score_no" name="A1_Score" value="0"> No
+            <br><br>
 
-<form id="myForm" action="/questionnaire" method="POST">
-    <label for="A1_Score">Does your child look at you when you call his/her name?</label>
-    <br>
-    <input type="radio" id="A1_Score_yes" name="A1_Score" value="1"> Yes
-    <input type="radio" id="A1_Score_no" name="A1_Score" value="0"> No
-    <br><br>
+            <label for="A2_Score">2-How easy is it for you to get eye contact you with your child?</label>
+            <br>
+            <input type="radio" id="A2_Score_yes" name="A2_Score" value="1"> Yes
+            <input type="radio" id="A2_Score_no" name="A2_Score" value="0"> No
+            <br><br>
 
-    <label for="A2_Score">How easy is it for you to get eye contact you with your child?</label>
-    <br>
-    <input type="radio" id="A2_Score_yes" name="A2_Score" value="1"> Yes
-    <input type="radio" id="A2_Score_no" name="A2_Score" value="0"> No
-    <br><br>
+            <label for="A3_Score">3-Does your child point to indicate that she/he wants something?</label>
+            <br>
+            <input type="radio" id="A3_Score_yes" name="A3_Score" value="1"> Yes
+            <input type="radio" id="A3_Score_no" name="A3_Score" value="0"> No
+            <br><br>
 
-    <label for="A3_Score">Does your child point to indicate that she/he wants something?</label>
-    <br>
-    <input type="radio" id="A3_Score_yes" name="A3_Score" value="1"> Yes
-    <input type="radio" id="A3_Score_no" name="A3_Score" value="0"> No
-    <br><br>
+            <label for="A4_Score">4-Does your child point to share interest with you?</label>
+            <br>
+            <input type="radio" id="A4_Score_yes" name="A4_Score" value="1"> Yes
+            <input type="radio" id="A4_Score_no" name="A4_Score" value="0"> No
+            <br><br>
 
-    <label for="A4_Score">Does your child point to share interest with you ?</label>
-    <br>
-    <input type="radio" id="A4_Score_yes" name="A4_Score" value="1"> Yes
-    <input type="radio" id="A4_Score_no" name="A4_Score" value="0"> No
-    <br><br>
+            <label for="A5_Score">5-Does your child pretend?</label>
+            <br>
+            <input type="radio" id="A5_Score_yes" name="A5_Score" value="1"> Yes
+            <input type="radio" id="A5_Score_no" name="A5_Score" value="0"> No
+            <br><br>
 
-    <label for="A5_Score">Does your child pretend</label>
-    <br>
-    <input type="radio" id="A1_Score_yes" name="A5_Score" value="1"> Yes
-    <input type="radio" id="A1_Score_no" name="A5_Score" value="0"> No
-    <br><br>
+            <label for="A6_Score">6-Does your child follow where you are looking?</label>
+            <br>
+            <input type="radio" id="A6_Score_yes" name="A6_Score" value="1"> Yes
+            <input type="radio" id="A6_Score_no" name="A6_Score" value="0"> No
+            <br><br>
 
-    <label for="A6_Score">Does your child follow where you are looking?</label>
-    <br>
-    <input type="radio" id="A6_Score_yes" name="A6_Score" value="1"> Yes
-    <input type="radio" id="A6_Score_no" name="A6_Score" value="0"> No
-    <br><br>
+            <label for="A7_Score">7-If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them?</label>
+            <br>
+            <input type="radio" id="A7_Score_yes" name="A7_Score" value="1"> Yes
+            <input type="radio" id="A7_Score_no" name="A7_Score" value="0"> No
+            <br><br>
 
-    <label for="A7_Score">If you or someone else in the family is visibly upset,does your child show signs of warning to comfort them?</label>
-    <br>
-    <input type="radio" id="A7_Score_yes" name="A7_Score" value="1"> Yes
-    <input type="radio" id="A7_Score_no" name="A7_Score" value="0"> No
-    <br><br>
+            <label for="A8_Score">8-Would you describe your child's first words as?</label>
+            <br>
+            <input type="radio" id="A8_Score_yes" name="A8_Score" value="1"> Yes
+            <input type="radio" id="A8_Score_no" name="A8_Score" value="0"> No
+            <br><br>
 
-    <label for="A8_Score">Would you describe your child is Frist words as?</label>
-    <br>
-    <input type="radio" id="A8_Score_yes" name="A8_Score" value="1"> Yes
-    <input type="radio" id="A8_Score_no" name="A8_Score" value="0"> No
-    <br><br>
+            <label for="A9_Score">9-Does your child use simple gestures?</label>
+            <br>
+            <input type="radio" id="A9_Score_yes" name="A9_Score" value="1"> Yes
+            <input type="radio" id="A9_Score_no" name="A9_Score" value="0"> No
+            <br><br>
 
-    <label for="A9_Score">"Does your child use simple gestures?</label>
-    <br>
-    <input type="radio" id="A9_Score_yes" name="A9_Score" value="1"> Yes
-    <input type="radio" id="A9_Score_no" name="A9_Score" value="0"> No
-    <br><br>
+            <label for="A10_Score">10-Does your child stare at nothing with no apparent purpose?</label>
+            <br>
+            <input type="radio" id="A10_Score_yes" name="A10_Score" value="1"> Yes
+            <input type="radio" id="A10_Score_no" name="A10_Score" value="0"> No
+            <br><br>
 
-    <label for="A10_Score">Does your child stare at nothing with no apparent purpose?</label>
-    <br>
-    <input type="radio" id="A10_Score_yes" name="A10_Score" value="1"> Yes
-    <input type="radio" id="A10_Score_no" name="A10_Score" value="0"> No
-    <br><br>
+            <label for="used_app_before">11-Did you use the app before?</label>
+            <br>
+            <input type="radio" id="used_app_before_yes" name="used_app_before" value="yes"> Yes
+            <input type="radio" id="used_app_before_no" name="used_app_before" value="no"> No
+            <br><br>
 
-    <label for="used_app_before">Did you use the app before?</label>
-    <br>
-    <input type="radio" id="used_app_before_yes" name="used_app_before" value="yes"> Yes
-    <input type="radio" id="used_app_before_no" name="used_app_before" value="no"> No
-    <br><br>
+            <label for="jundice">12-Jaundice</label>
+            <br>
+            <input type="radio" id="jundice_yes" name="jundice" value="yes"> Yes
+            <input type="radio" id="jundice_no" name="jundice" value="no"> No
+            <br><br>
 
-    <label for="jundice">Jundice</label>
-    <br>
-    <input type="radio" id="jundice_yes" name="jundice" value="yes"> Yes
-    <input type="radio" id="jundice_no" name="jundice" value="no"> No
-    <br><br>
+            <label for="gender">13-Gender:</label>
+            <br>
+            <select id="gender" name="gender">
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+            </select>
+            <br><br>
 
-    <label for="gender">Gender:</label>
-    <br>
-    <select id="gender" name="gender">
-        <option value="m">Male</option>
-        <option value="f">Female</option>
-    </select>
-    <br><br>
+            <label for="ethnicity">14-Ethnicity:</label>
+            <br>
+            <select id="ethnicity" name="ethnicity">
+                <option value="">Select Ethnicity</option>
+                <option value="Others">Others</option>
+                <option value="Middle Eastern">Middle Eastern</option>
+                <option value="White-European">White-European</option>
+                <option value="Black">Black</option>
+                <option value="South Asian">South Asian</option>
+                <option value="Asian">Asian</option>
+                <option value="Pasifika">Pasifika</option>
+                <option value="Hispanic">Hispanic</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Latino">Latino</option>
+            </select>
+            <br><br>
 
-    <label for="ethnicity">Ethnicity:</label>
-        <br>
-        <select id="ethnicity" name="ethnicity">
-            <option value="">Select Ethnicity</option>
-            <option value="Others">Others</option>
-            <option value="Middle Eastern">Middle Eastern</option>
-            <option value="White-European">White-European</option>
-            <option value="Black">Black</option>
-            <option value="South Asian">South Asian</option>
-            <option value="Asian">Asian</option>
-            <option value="Pasifika">Pasifika</option>
-            <option value="Hispanic">Hispanic</option>
-            <option value="Turkish">Turkish</option>
-            <option value="Latino">Latino</option>
-        </select>
-        <br><br>
-
-    <label for="relation">Your Relation to the Child:</label>
-        <br>
-        <select id="relation" name="relation">
-            <option value="">Select Relation</option>
-            <option value="Parent">Parent</option>
-            <option value="Self">Self</option>
-            <option value="Relative">Relative</option>
-            <option value="Health care professional">Health care professional</option>
-        </select>
-        <br><br>
-
-    <button type="submit">Submit</button>
-</form>
-
-<div id="result">
-    {% if result %}
-        <p>Likellyhood of Autism is : {{ result }}%</p>
-    {% endif %}
-</div>
+            <label for="relation">15-Your Relation to the Child:</label>
+            <br>
+            <select id="relation" name="relation">
+                <option value="">Select Relation</option>
+                <option value="Parent">Parent</option>
+                <option value="Self">Self</option>
+                <option value="Relative">Relative</option>
+                <option value="Health care professional">Health care professional</option>
+            </select>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
     
 {% endblock %}
