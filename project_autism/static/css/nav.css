@@ -9,9 +9,7 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-:root {
-    --primary-color: #102C57;
-}
+
 
 html {
     scroll-padding-top: 57px;
@@ -31,22 +29,37 @@ html {
 
 .text-paragraph {
     max-width: 500px;
-    color: grey;
+    color: var(--thrid-color);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Montserrat', sans-serif;
-}
-
+:root {
+    --primary-color: #1A2130;
+    --sec-color: #5A72A0;
+    --thrid-color: #83B4FF;
+    --four-color: #FDFFE2;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color: var(--sec-color);
+  }
+   
+  p
+  {
+    color: var(--thrid-color);
+  }
 
 
 /* ==== NAVBAR ==> */
-
+.bg
+{
+    background-color:var(--primary-color);
+}
 .navbar-nav .nav-link.active {
     color: var(--primary-color);
 }
@@ -59,17 +72,27 @@ h6 {
     margin-right: 5px;
 }
 
-.nav-link:focus,
-.nav-link:hover {
-    color: var(--primary-color);
+ .nav-link:focus,
+.nav-link:hover  {
+    background-color: var(--thrid-color);
+    transition: 0.5s all;
+    color: var(--primary-color) !important;
+    border-radius: 16px;
 }
 
-.main-textcolor
+
+.nav-item.active{
+    background-color: var(--thrid-color);
+    transition: 0.5s all;
+    color: var(--primary-color) !important;
+    border-radius: 16px;
+}
+.navtext
 {
-    color: #102C57;
+    color: var(--thrid-color) !important;
 }
 
 .footer
 {
-    background-color: #3f51b5
+    background-color: var(--primary-color);
 }

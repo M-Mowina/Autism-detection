@@ -15,87 +15,82 @@
 {% endblock %}
 
 {% block main %}
-    <section class="container">
-        <div id="result">
-            {% if result %}
-                <p>Likellyhood of Autism is : {{ result }}%</p>
-            {% endif %}
-        </div>
-        <div class="title">
-            <h2>Child Development Assessment</h2>
+    <section class="container mt-5">
+        <div class="title text-center">
+            <h2 class="main">Child Development Assessment</h2>
             <p>Please answer the following questions to the best of your ability.</p>
         </div>
-        <form id="myForm">
+        <form id="myForm" action="/questionnaire" method="post">
             <label for="A1_Score">1-Does your child look at you when you call his/her name?</label>
             <br>
-            <input type="radio" id="A1_Score_yes" name="A1_Score" value="1"> Yes
-            <input type="radio" id="A1_Score_no" name="A1_Score" value="0"> No
+            <input  type="radio" id="A1_Score_yes" name="A1_Score" value="1"><span class="answer">Yes </span>
+            <input type="radio" id="A1_Score_no" name="A1_Score" value="0"><span class="answer">No </span> 
             <br><br>
 
             <label for="A2_Score">2-How easy is it for you to get eye contact you with your child?</label>
             <br>
-            <input type="radio" id="A2_Score_yes" name="A2_Score" value="1"> Yes
-            <input type="radio" id="A2_Score_no" name="A2_Score" value="0"> No
+            <input type="radio" id="A2_Score_yes" name="A2_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A2_Score_no" name="A2_Score" value="0"> <span class="answer">No </span>
             <br><br>
 
             <label for="A3_Score">3-Does your child point to indicate that she/he wants something?</label>
             <br>
-            <input type="radio" id="A3_Score_yes" name="A3_Score" value="1"> Yes
-            <input type="radio" id="A3_Score_no" name="A3_Score" value="0"> No
+            <input type="radio" id="A3_Score_yes" name="A3_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A3_Score_no" name="A3_Score" value="0"><span class="answer">No </span>
             <br><br>
 
             <label for="A4_Score">4-Does your child point to share interest with you?</label>
             <br>
-            <input type="radio" id="A4_Score_yes" name="A4_Score" value="1"> Yes
-            <input type="radio" id="A4_Score_no" name="A4_Score" value="0"> No
+            <input type="radio" id="A4_Score_yes" name="A4_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A4_Score_no" name="A4_Score" value="0"> <span class="answer">No </span>
             <br><br>
 
             <label for="A5_Score">5-Does your child pretend?</label>
             <br>
-            <input type="radio" id="A5_Score_yes" name="A5_Score" value="1"> Yes
-            <input type="radio" id="A5_Score_no" name="A5_Score" value="0"> No
+            <input type="radio" id="A5_Score_yes" name="A5_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A5_Score_no" name="A5_Score" value="0"> <span class="answer">No </span>
             <br><br>
 
             <label for="A6_Score">6-Does your child follow where you are looking?</label>
             <br>
-            <input type="radio" id="A6_Score_yes" name="A6_Score" value="1"> Yes
-            <input type="radio" id="A6_Score_no" name="A6_Score" value="0"> No
+            <input type="radio" id="A6_Score_yes" name="A6_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A6_Score_no" name="A6_Score" value="0"> <span class="answer">No </span>
             <br><br>
 
             <label for="A7_Score">7-If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them?</label>
             <br>
-            <input type="radio" id="A7_Score_yes" name="A7_Score" value="1"> Yes
-            <input type="radio" id="A7_Score_no" name="A7_Score" value="0"> No
+            <input type="radio" id="A7_Score_yes" name="A7_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A7_Score_no" name="A7_Score" value="0"> <span class="answer">No </span>
             <br><br>
 
             <label for="A8_Score">8-Would you describe your child's first words as?</label>
             <br>
-            <input type="radio" id="A8_Score_yes" name="A8_Score" value="1"> Yes
-            <input type="radio" id="A8_Score_no" name="A8_Score" value="0"> No
+            <input type="radio" id="A8_Score_yes" name="A8_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A8_Score_no" name="A8_Score" value="0"><span class="answer">No </span>
             <br><br>
 
             <label for="A9_Score">9-Does your child use simple gestures?</label>
             <br>
-            <input type="radio" id="A9_Score_yes" name="A9_Score" value="1"> Yes
-            <input type="radio" id="A9_Score_no" name="A9_Score" value="0"> No
+            <input type="radio" id="A9_Score_yes" name="A9_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A9_Score_no" name="A9_Score" value="0"> <span class="answer">No </span>
             <br><br>
 
             <label for="A10_Score">10-Does your child stare at nothing with no apparent purpose?</label>
             <br>
-            <input type="radio" id="A10_Score_yes" name="A10_Score" value="1"> Yes
-            <input type="radio" id="A10_Score_no" name="A10_Score" value="0"> No
+            <input type="radio" id="A10_Score_yes" name="A10_Score" value="1"> <span class="answer">Yes </span>
+            <input type="radio" id="A10_Score_no" name="A10_Score" value="0"> <span class="answer">No </span>
             <br><br>
 
             <label for="used_app_before">11-Did you use the app before?</label>
             <br>
-            <input type="radio" id="used_app_before_yes" name="used_app_before" value="yes"> Yes
-            <input type="radio" id="used_app_before_no" name="used_app_before" value="no"> No
+            <input type="radio" id="used_app_before_yes" name="used_app_before" value="yes">  <span class="answer">Yes </span>
+            <input type="radio" id="used_app_before_no" name="used_app_before" value="no"> <span class="answer">No </span>
             <br><br>
 
             <label for="jundice">12-Jaundice</label>
             <br>
-            <input type="radio" id="jundice_yes" name="jundice" value="yes"> Yes
-            <input type="radio" id="jundice_no" name="jundice" value="no"> No
+            <input type="radio" id="jundice_yes" name="jundice" value="yes">  <span class="answer">Yes </span>
+            <input type="radio" id="jundice_no" name="jundice" value="no"> <span class="answer">No </span>
             <br><br>
 
             <label for="gender">13-Gender:</label>

@@ -24,7 +24,7 @@
     
     <section>
         <div class="title">
-            <h2 class="mb-5">Photographic Autism Detection</h2>
+            <h2 class="mb-5 mt-3">Photographic Autism Detection</h2>
             <img src="{{ url_for('static', filename='images/detect.jpg') }}" class="w-25" alt="Detection Image">
         </div>
         <div class="instruction container">
@@ -32,12 +32,12 @@
                 <div class="col-md-7">
                     <h6 class="mb-4">The photo must meet the following conditions:</h6>
                     <ul>
-                        <li>Right-side-up (not rotated) to be printed on your Tazkarti ID</li>
-                        <li>35-40 mm in width</li>
-                        <li>Face takes up 70-80% of it</li>
-                        <li>No sunglasses, hats, or caps</li>
-                        <li>Show you alone with neutral expression</li>
-                        <li>Clear and of high quality</li>
+                        <li class="text-decoration-none"><p>1-Right-side-up (not rotated) </p></li>
+                        <li class="text-decoration-none"><p>2-35-40 mm in width</p></li>
+                        <li class="text-decoration-none"> <p>3-Face takes up 70-80% of it</p></li>
+                        <li class="text-decoration-none"><p>4-No sunglasses, hats, or caps</p></li>
+                        <li class="text-decoration-none"><p>5-Show you alone with neutral expression</p></li>
+                        <li class="text-decoration-none"><p>6-Clear and of high quality</p></li>
                     </ul>
                 </div>
                 <div class="col-md-5">
@@ -49,8 +49,8 @@
         <div class="form mt-5">
             <div id="upload">
                 <form action="/image_detection" method="POST" enctype="multipart/form-data">
-                    <label for="image">Upload an image:</label>
-                    <input type="file" name="image" id="image" accept="image/*" required>
+                    <label class="label-p" for="image"><p>Upload an image:</p></label>
+                    <input class="label-p" type="file" name="image" id="image" accept="image/*" required>
                     <button type="submit">Upload & Classify</button>
                 </form>
             </div>

@@ -18,9 +18,9 @@
 
 <body data-bs-spy="scroll" data-bs-target="#navbar">
     <!-- ====> NAVBAR <====-->
-    <nav id="navbar" class="navbar navbar-expand-lg  bg-body-tertiary">
+    <nav id="navbar" class="navbar navbar-expand-lg  rounded-bottom-4  bg">
         <div class="container">
-            <a class="navbar-brand" href="/"> Autism Detection </a>
+            <a class="navbar-brand navtext " href="/"> Autism Detection </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,31 +29,33 @@
                 {% if session["user_id"] %}
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
-                        <a class="nav-link active text-dark" aria-current="page" href="/">Home</a>
+                        <a class="nav-link  navtext" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/image_detection">Photagraphic Detection </a>
+                        <a class="nav-link  navtext" aria-current="page" href="/image_detection">Photagraphic Detection </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark " aria-current="page" href="/questionnaire">Questionnair</a>
+                        <a class="nav-link navtext " aria-current="page" href="/questionnaire">Questionnair</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="/about">About</a>
+                        <a class="nav-link navtext" href="/about">About</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="/contact">Contact Us</a>
+                        <a class="nav-link navtext" href="/contact">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="/logout">Log Out</a>
+                        <a class="nav-link navtext" href="/logout">Log Out</a>
                     </li>
                 {% else %}
+                <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="/login">Login</a>
+                        <a class="nav-link navtext" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="/register">Register</a>
+                        <a class="nav-link navtext" href="/register">Register</a>
                     </li>
+                </ul >
                 {% endif %}
                     
 
@@ -75,35 +77,36 @@
     <footer class="text-center  footer text-white">
         <div class="container">
             <section class="mt-3">
-                <div class="row text-center d-flex justify-content-center pt-5">
+                <div class="row text-center d-flex justify-content-center pt-4">
+                    
+
                     <div class="col-md-2">
                         <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white text-decoration-none">About us</a>
+                            <a href="/image_detection" class="text-white text-decoration-none">Photagraphic Detection</a>
                         </h6>
                     </div>
 
                     <div class="col-md-2">
                         <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white text-decoration-none">Photagraphic Detection</a>
-                        </h6>
-                    </div>
-
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white text-decoration-none">Questionnair</a>
+                            <a href="/questionnaire" class="text-white text-decoration-none">Questionnair</a>
                         </h6>
                     </div>
                     <div class="col-md-2">
                         <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white text-decoration-none">Contact Us</a>
+                            <a href="/about" class="text-white text-decoration-none">About us</a>
+                        </h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="/contact" class="text-white text-decoration-none">Contact Us</a>
                         </h6>
                     </div>
                 </div>
             </section>
 
-            <hr class="my-3" />
+            <hr class="my-2" />
 
-            <section class="mb-3">
+            <section class="mb-2">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <p>
@@ -120,7 +123,7 @@
                 </div>
             </section>
 
-            <section class="text-center mb-3">
+            <section class="text-center mb-2">
                 <a href="" class="text-white text-decoration-none me-4">
                     <i class="fab fa-facebook-f"></i>
                 </a>
@@ -140,11 +143,11 @@
                     <i class="fab fa-github"></i>
                 </a>
             </section>
-            <hr class="mt-3" />
+            <hr class="mt-1" />
 
         </div>
 
-        <div class=" p-3">
+        <div class=" py-2">
 
             © Copyright 2024, All Rights Reserved by
             <span> Autism Detection </span>

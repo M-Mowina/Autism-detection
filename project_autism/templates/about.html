@@ -7,8 +7,7 @@
 {% block styles %}
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
     <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- BOOTSTRAP STYLESHEET -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
@@ -19,38 +18,38 @@
 {% endblock %}
 
 {% block main %}
-    <div class="container mt-5">
-        <div class="about">
-            <h1 class="text-center"><span class="dash me-2">-</span> About Us</h1>
-            <p class="text-center mb-4">
-                Welcome to our Autism Detection Platform. Our mission is to provide an accessible, reliable, and innovative tool for the early detection of autism. By leveraging advanced AI and machine learning technologies, we aim to help parents, caregivers, and healthcare professionals identify potential signs of autism in children.
-            </p>
-        </div>
-        <div class="feature my-5">
-            <h2 class="text-start"><span class="dash me-2">-</span>Our Features</h2>
-
-            <ul class="mb-4">
-                <li class="mb-2"><h6>1-Early Detection and Intervention:</h6> Our platform enables early identification of autism, which is crucial for timely intervention and support.</li>
-                <li class="mb-2"><h6>2-Image Analysis:</h6> Upload a photo, and our advanced model will analyze it to detect signs of autism.</li>
-                <li class="mb-2"><h6>3-Question-Based Assessment:</h6> Answer a series of carefully designed questions to help determine the likelihood of autism.</li>
-                <li class="mb-2"><h6>4-Accessibility:</h6> Our website is designed to be easily accessible from anywhere, providing a convenient tool for users worldwide.</li>
-                <li class="mb-2"><h6>5-User-Friendly Interface:</h6> Our intuitive design ensures that the platform is easy to use, even for those with limited technical skills.</li>
-                <li class="mb-2"><h6>6-Privacy and Confidentiality:</h6> We prioritize the privacy and confidentiality of our users' data, ensuring a safe and secure experience.</li>
-                <li class="mb-2"><h6>7-Support and Resources:</h6> In addition to detection, we offer valuable resources, links to professional services, and educational materials to support families and caregivers.</li>
-                <li class="mb-2"><h6>8-Cost-Effective:</h6> Our platform provides a cost-effective preliminary screening tool, helping to reduce the financial burden on families.</li>
-                <li class="mb-2"><h6>9-Continuous Improvement:</h6> Our AI and machine learning algorithms continuously improve, ensuring the highest level of accuracy and reliability.</li>
-            </ul>
-        </div>
-        <div class="mission mt-5">
-            <h2 class="text-start my-3"><span class="dash me-2">-</span>Our Mission</h2>
-            <p>
-                We believe that early detection can make a significant difference in the lives of individuals with autism and their families. Our goal is to empower users with the knowledge and tools they need to take the first steps towards seeking professional help and support.
-            </p>
-            <p>
-                Thank you for choosing our Autism Detection Platform. Together, we can make a difference.
-            </p>
-        </div>
+<div class="container mt-5">
+    <div class="about">
+        <h1 class="text-center fs-2"><span class="dash me-2">-</span> About Us</h1>
+        <p class="text-center mb-4">
+            Welcome to our Autism Detection Platform. Our mission is to provide an accessible, reliable, and innovative tool for the early detection of autism. By leveraging advanced AI and machine learning technologies, we aim to help parents, caregivers, and healthcare professionals identify potential signs of autism in children.
+        </p>
     </div>
+     <div class="feature my-5">
+        <h2 class="text-start"><span class="dash me-2">-</span>Our Features</h2>
+
+        <ul class="mb-4">
+            <li class="mb-2 text-decoration-none"><h3>1-Early Detection and Intervention:</h3> <p>Our platform enables early identification of autism, which is crucial for timely intervention and support.</p> </li>
+            <li class="mb-2 text-decoration-none"><h3>2-Image Analysis:</h3> <p>Upload a photo, and our advanced model will analyze it to detect signs of autism.</p>  </li>
+            <li class="mb-2 text-decoration-none"><h3>3-Question-Based Assessment:</h3> <p>Answer a series of carefully designed questions to help determine the likelihood of autism.</p></li>
+            <li class="mb-2 text-decoration-none"><h3>4-Accessibility:</h3> <p>Our website is designed to be easily accessible from anywhere, providing a convenient tool for users worldwide.</p> </li>
+            <li class="mb-2 text-decoration-none"><h3>5-User-Friendly Interface:</h3> <p>Our intuitive design ensures that the platform is easy to use, even for those with limited technical skills.</p></li>
+            <li class="mb-2 text-decoration-none"><h3>6-Privacy and Confidentiality:</h3> <p>We prioritize the privacy and confidentiality of our users' data, ensuring a safe and secure experience.</p></li>
+            <li class="mb-2 text-decoration-none"><h3>7-Support and Resources:</h3> <p>In addition to detection, we offer valuable resources, links to professional services, and educational materials to support families and caregivers.</p></li>
+            <li class="mb-2 text-decoration-none"><h3>8-Cost-Effective:</h3> <p>Our platform provides a cost-effective preliminary screening tool, helping to reduce the financial burden on families.</p></li>
+            <li class="mb-2 text-decoration-none"><h3>9-Continuous Improvement:</h3><p>Our AI and machine learning algorithms continuously improve, ensuring the highest level of accuracy and reliability.</p> </li>
+        </ul>
+    </div>
+    <div class="mission mt-5">
+        <h2 class="text-start my-3"><span class="dash me-2">-</span>Our Mission</h2>
+        <p>
+            We believe that early detection can make a significant difference in the lives of individuals with autism and their families. Our goal is to empower users with the knowledge and tools they need to take the first steps towards seeking professional help and support.
+        </p>
+        <p>
+            Thank you for choosing our Autism Detection Platform. Together, we can make a difference.
+        </p>
+    </div> 
+</div> 
 
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block main %}
+    <div id="result">
+    {% if result %}
+        {% if image %}
+        <h2>Uploaded Image:</h2>
+        <img src="data:image/{{ image.format }};base64,{{ image }}" alt="image">
+        {% endif %}    
+        <h2>Prediction Result:</h2>
+        <p>Result : {{ result }}</p>        
+    {% endif %}
+    </div>
+{% endblock %}

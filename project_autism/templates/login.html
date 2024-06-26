@@ -4,31 +4,49 @@
     Login
 {% endblock %}
 
+{% block styles %}
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+
+
 {% block main %}
-    <form class="form" method="post" action="/login">
-    <p class="title">login</p>
-    <p class="message">login now and get full access to our app. </p>
-<!--     {% with error = get_flashed_messages(with_categories=True) %}
+<div class="container my-5 d-flex pt-5 justify-content-center align-items-center">
+  <form class="form" method="post" action="/login">
+      <h1 class="title">login</h1>
+      <p class="message">login now and get full access to our app. </p>
+  
+          <label>
+            <input required="" placeholder="" type="text" name="username" id="username" class="input" />
+            <span>User Name</span>
+          </label>
+  
+          <label>
+          <input required="" placeholder="" name="password" id="password" type="password" class="input" />
+          <span>Password</span>
+          </label>
+          <button class="submit">Submit</button>
+          <p class="signin">
+              No account? Create one! <a href="/register">Create one!</a>
+          </p>
+      </form>
+</div>
+    
+
+    <!--     {% with error = get_flashed_messages(with_categories=True) %}
       {% if error %}
         <div class="alert alert-danger" role="alert">
           {{ error[0][1] }}
         </div>
       {% endif %}
     {% endwith %} -->
-        <label>
-          <input required="" placeholder="" type="text" name="username" id="username" class="input" />
-          <span>User Name</span>
-        </label>
-
-        <label>
-        <input required="" placeholder="" name="password" id="password" type="password" class="input" />
-        <span>Password</span>
-        </label>
-        <button class="submit">Submit</button>
-        <p class="signin">
-            No account? Create one! <a href="/register">Create one!</a>
-        </p>
-    </form>
-    <a href="/register">Register</a>
-    
 {% endblock %}

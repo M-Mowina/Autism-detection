@@ -1,9 +1,25 @@
 /* de.css */
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    padding: 20px;
-}
+:root {
+    --primary-color: #1A2130;
+    --sec-color: #5A72A0;
+    --thrid-color: #83B4FF;
+    --four-color: #FDFFE2;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color: var(--primary-color);
+  }
+   
+  p
+  {
+    color: var(--thrid-color);
+  }
 
 .title {
     text-align: center;
@@ -13,13 +29,13 @@ body {
 .title img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px; /* Rounded corners for the image */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle box shadow */
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
 }
 
 .form {
     max-width: 600px;
-    margin: 0 auto; /* Center the form horizontally */
+    margin: 0 auto; 
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -38,8 +54,8 @@ body {
 }
 
 #upload button {
-    background-color: #007bff;
-    color: #fff;
+    background-color:var(--primary-color);
+    color: var(--thrid-color);
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -48,15 +64,21 @@ body {
 }
 
 #upload button:hover {
-    background-color: #0056b3;
-}
+    background-color:var(--sec-color);
+    color: var(--thrid-color);}
 
 #result {
     text-align: center;
     margin-top: 20px;
+    color:var(--sec-color);
+
 }
 
 #result p {
     font-size: 1.2rem;
-    color: #333;
+    color:var(--thrid-color);
+}
+.label-p
+{
+    color:var(--sec-color) !important;
 }

@@ -3,13 +3,47 @@
 {% block title %}
     Home
 {% endblock %}
-
+{% block styles %}
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
 {% block main %}
-    <div>
+<div class="container my-5 d-flex   justify-content-center align-items-center">
     <form class="form" method="post">
-        <p class="title">Register</p>
-        <p class="message">Signup now and get full access to our app.</p>
-        <!-- <div class="flex">
+        <h1 class="title">Register </h1>
+        <p class="message">Signup now and get full access to our app. </p>
+            <div class="flex">
+            
+            <label class=" w-100">
+                <input required="" placeholder="" name="username" id="username" type="text" class="input" />
+                <span>Firstname</span>
+            </label> 
+            
+        </div>  
+                
+        <label>
+            <input required="" placeholder="" name="email" id="email" type="email" class="input" />
+            <span>Email</span>
+        </label> 
+            
+        <label>
+            <input required="" placeholder="" name="password" id="password" type="password" class="input" />
+            <span>Password</span>
+        </label>
+    
+        <button class="submit">Submit</button>
+        <p class="signin">Already have an acount ? <a href="/login">Signin</a> </p>
+    </form>
+ </div>
+     <!-- <div class="flex"
         <label>
             <input required="" placeholder="" type="text" class="input" />
             <span>Firstname</span>
@@ -20,24 +54,4 @@
             <span>Lastname</span>
         </label>
         </div> -->
-
-        <label>
-            <input required="" placeholder="" name="username" id="username" type="text" class="input" />
-            <span>Username</span>
-        </label>
-
-        <label>
-            <input required="" placeholder="" name="email" id="email" type="email" class="input" />
-            <span>Email</span>
-        </label>
-
-        <label>
-            <input required="" placeholder="" name="password" id="password" type="password" class="input" />
-            <span>password</span>
-        </label>
-        <button class="submit">Submit</button>
-        <p class="signin">Already have an acount ? <a href="/login">Signin</a></p>
-    </form>
-    </div>
-    
 {% endblock %}
