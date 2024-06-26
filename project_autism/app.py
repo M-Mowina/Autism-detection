@@ -8,7 +8,10 @@ import bcrypt
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import joblib
+import io
+import base64
 
+print(tf.__version__)
 # Database connection details
 DATABASE_FILE = 'autism.db'
 
@@ -63,7 +66,7 @@ def register():
                 # Handle existing username or email error (e.g., flash message)
                 error = "Username or email already exists."
                 flash(error, 'danger')
-                print(error)
+                #print(error)
                 return render_template('register.html', error=error)
                 
         except sqlite3.Error as e:
@@ -103,8 +106,8 @@ def login():
             # Check for user existence
             cur.execute("SELECT * FROM Users WHERE username = ?", (username,))
             user = cur.fetchone()
-            print('password: ',password)
-            print('users pass:',user[3])
+            #print('password: ',password)
+            #print('users pass:',user[3])
             if not user:
                 # Handle invalid username
                 error = "Invalid username or password."
@@ -152,18 +155,18 @@ def logout():
 def image_detection():
     if request.method == 'POST':
         image_file = request.files["image"]
-        img = Image.open(image_file)  # Ensure proper conversion based on model input
-
-        # Preprocess image based on your model requirements (e.g., resizing, normalization)
-        #preprocessed_img = convert(img)
+        img = Image.open(image_file)
 
         # Predict lapel using your model
         result = make_prediction(img)
-        #predicted_class = np.argmax(label)
-        #result = predicted_class
-
         print(result)
-        return render_template('image_detection.html', result=result)
+
+        # Convert image to base64 for efficient transfer
+        img_byte_array = io.BytesIO()
+        img.save(img_byte_array, format=img.format)
+        encoded_image = base64.b64encode(img_byte_array.getvalue()).decode('utf-8')
+                
+        return render_template('result.html', result=result, image=encoded_image)
     else:
         return render_template('image_detection.html')
 
@@ -191,11 +194,12 @@ def questionnaire():
     }
     x_new = pd.DataFrame(inputs)
     print(x_new)
+    print()
 
     # Process user responses and return results
-    result = predict(x_new)[0][0]
+    result = predict(x_new)
     print('Result: ',result)
-    return render_template('questionnaire.html', result=result)
+    return render_template('result.html', result=result)
   else:
     return render_template('questionnaire.html')
 
@@ -223,7 +227,6 @@ def contact():
         # Insert data into the ContactUs table
         try:
             user_id = session['user_id']
-            name = session['user_name']
             # Use a parameterized query to prevent SQL injection attacks
             cursor = conn.cursor()
             cursor.execute("""INSERT INTO Feedback (subject, message, user_id)
@@ -255,9 +258,11 @@ def make_prediction(img):
     #img = Image.open(img_path)
     converted_img = convert(img)
     prediction = model.predict(converted_img)
-    return prediction[0][0]
-
-    
+    if prediction[0][0] > prediction[0][1]:
+        return "Autism"
+    else:
+        return "Non-Autism" 
+  
 def preprocess_input(input_data, scaler = scaler, columns = columns):
     """
     Preprocesses the input data by applying one-hot encoding and scaling.
@@ -285,25 +290,17 @@ def preprocess_input(input_data, scaler = scaler, columns = columns):
     return input_data
 
 def predict(input_data, model = questionnaire_mode, scaler = scaler, columns = columns):
-    """
-    Predicts the output using the trained model.
-    
-    Parameters:
-    - input_data: pd.DataFrame, new input data
-    - model: trained model
-    - scaler: StandardScaler, fitted scaler from the training data
-    - columns: list, columns of the training data after one-hot encoding
-    
-    Returns:
-    - np.array, predictions
-    """
     # Preprocess the input data
     input_data_preprocessed = preprocess_input(input_data, scaler, columns)
     
     # Make predictions
     predictions = model.predict(input_data_preprocessed)
     
-    return predictions
+    if predictions[0][0] > 0.5:
+        return "Autism"
+    else:
+        return "Non-Autism"
+    
 
 if __name__ == '__main__':
     app.run()
